@@ -11,3 +11,11 @@ CREATE TABLE oauth2jdbc.oauth_client_details (
     additional_information VARCHAR(4096),
     autoapprove VARCHAR(256)
 );
+
+create TABLE oauth2jdbc.oauth_client_users(
+username VARCHAR(256) PRIMARY KEY,
+password VARCHAR(256),
+client_id VARCHAR(256),
+roles VARCHAR(256),
+FOREIGN KEY (client_id) REFERENCES oauth_client_details(client_id)
+);
